@@ -1,1 +1,1 @@
-rootProject.name = "nurigo.sdk"
+rootProject.name = "solapi.sdk"

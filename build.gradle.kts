@@ -16,8 +16,8 @@ plugins {
     id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
-group = "net.nurigo"
-version = "5.0.0"
+group = "com.solapi"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -49,11 +49,11 @@ val generatedSrcDir = layout.buildDirectory.dir("generated/source/kotlin")
 sourceSets.main.get().java.srcDir(generatedSrcDir)
 
 val generateVersionFile by tasks.register("generateVersionFile") {
-    val file = generatedSrcDir.get().file("net/nurigo/sdk/Version.kt")
+    val file = generatedSrcDir.get().file("com/solapi/sdk/Version.kt")
     outputs.file(file)
     doLast {
         file.asFile.parentFile.mkdirs()
-        file.asFile.writeText("""|package net.nurigo.sdk
+        file.asFile.writeText("""|package com.solapi.sdk
                                |
                                |internal object Version {
                                |    const val SDK_VERSION = "$version"
