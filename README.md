@@ -1,4 +1,4 @@
-# Nurigo Java SDK
+# SOLAPI Kotlin(includes Java) SDK
 
 ### 실행방법
 
