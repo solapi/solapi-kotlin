@@ -1,3 +1,4 @@
+import org.gradle.api.publish.maven.tasks.AbstractPublishToMaven
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import org.jetbrains.dokka.gradle.tasks.DokkaGeneratePublicationTask
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -24,8 +25,54 @@ repositories {
 }
 
 mavenPublishing {
-    publishToMavenCentral()
+    // Central Portal 사용 (OSSRH가 아닌)
+    publishToMavenCentral(automaticRelease = false)
+
+    // GPG 서명 활성화 (선택사항이지만 권장)
     signAllPublications()
+
+    // 아티팩트 좌표 및 POM 메타데이터 설정
+    coordinates(group.toString(), "sdk", version.toString())
+
+    pom {
+        name.set("SOLAPI SDK")
+        description.set("SOLAPI 및 SOLAPI 계열(쿨에스엠에스 등) 서비스에서 사용되는 문자 발송용 SDK")
+        url.set("https://github.com/solapi/solapi-kotlin")
+
+        licenses {
+            license {
+                name.set("MIT License")
+                url.set("https://opensource.org/license/MIT")
+            }
+        }
+
+        developers {
+            developer {
+                id.set("contact")
+                name.set("SOLAPI Contact")
+                email.set("contact@solapi.com")
+                organization.set("SOLAPI Inc")
+            }
+            developer {
+                id.set("lucy")
+                name.set("Lucy Lee")
+                email.set("lucy@solapi.com")
+                organization.set("SOLAPI Inc")
+            }
+            developer {
+                id.set("hosy")
+                name.set("Hosy Lee")
+                email.set("hosy@solapi.com")
+                organization.set("SOLAPI Inc")
+            }
+        }
+
+        scm {
+            connection.set("scm:git:git://github.com/solapi/solapi-kotlin.git")
+            developerConnection.set("scm:git:ssh://github.com/solapi/solapi-kotlin.git")
+            url.set("https://github.com/solapi/solapi-kotlin")
+        }
+    }
 }
 
 dependencies {
@@ -67,7 +114,7 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 java {
-    withJavadocJar()
+    // Dokka가 javadocJar를 제공하므로 withJavadocJar() 제거
     withSourcesJar()
 }
 
@@ -122,54 +169,12 @@ tasks.withType<DokkaGeneratePublicationTask>().configureEach {
     outputDirectory.set(project.rootDir.resolve("docs"))
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            groupId = group.toString()
-            artifactId = "sdk"
-            version = version
-
-            from(components["shadow"])
-
-            artifact(tasks.named("sourcesJar"))
-            artifact(tasks.named("javadocJar"))
-
-            pom {
-                name.set("SOLAPI SDK")
-                description.set("SOLAPI 및 SOLAPI 계열(쿨에스엠에스 등) 서비스에서 사용되는 문자 발송용 SDK")
-                url.set("https://github.com/nurigo/java-sdk")
-                licenses {
-                    license {
-							name.set("MIT License")
-							url.set("https://opensource.org/license/MIT")
-                    }
-                }
-                developers {
-                    developer {
-                        name.set("SOLAPI Contact")
-                        email.set("contact@SOLAPI.com")
-                        organization.set("SOLAPI Inc")
-                    }
-                    developer {
-                        name.set("Lucy Lee")
-                        email.set("lucy@solapi.com")
-                        organization.set("SOLAPI Inc")
-                    }
-                    developer {
-                        id.set("hosy")
-                        name.set("Hosy Lee")
-                        email.set("hosy@solapi.com")
-                        organization.set("SOLAPI Inc")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/solapi/solapi-kotlin.git")
-                    developerConnection.set("scm:git:ssh://github.com/solapi/solapi-kotlin.git")
-                    url.set("https://github.com/solapi/solapi-kotlin")
-                }
-            }
-        }
-    }
+// Publishing 관련 태스크들이 dokkaJavadocJar에 의존하도록 설정
+tasks.withType<AbstractPublishToMaven>().configureEach {
+    dependsOn("dokkaJavadocJar")
 }
 
-
+// 메타데이터 생성 태스크가 dokkaJavadocJar에 의존하도록 설정
+afterEvaluate {
+    tasks.findByName("generateMetadataFileForMavenPublication")?.dependsOn("dokkaJavadocJar")
+}
