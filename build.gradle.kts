@@ -8,7 +8,6 @@ plugins {
     kotlin("jvm") version "2.2.0"
     kotlin("plugin.serialization") version "2.2.0"
     id("org.jetbrains.dokka") version "2.0.0"
-    id("org.jetbrains.dokka-javadoc") version "2.0.0"
     id("com.gradleup.shadow") version "8.3.8"
     java
     `java-library`
