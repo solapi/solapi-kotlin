@@ -11,6 +11,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - name: Enable Dokka V2 in gradle.properties
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+        PLUGIN_MODE_V2: V2Enabled
+      run: |
+        echo "org.jetbrains.dokka.experimental.gradle.pluginMode=${PLUGIN_MODE_V2}" > ./gradle.properties
     - name: Build
       run: |
         sh ./gradlew dokkaGeneratePublicationHtml
