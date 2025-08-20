@@ -2,11 +2,6 @@ name: Build SDK References Documents
 
 on:
   workflow_dispatch:
-    secrets:
-      OSS_USERNAME:
-        required: true
-      OSS_PASSWORD:
-        required: true
 
 jobs:
   build-docs:
@@ -14,17 +9,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Restore gradle.properties
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-        OSS_USERNAME: ${{ secrets.OSS_USERNAME }}
-        OSS_PASSWORD: ${{ secrets.OSS_PASSWORD }}
-      run: |
-        echo "ossusername=${OSS_USERNAME}" > ./gradle.properties
-        echo "osspassword=${OSS_PASSWORD}" >> ./gradle.properties
     - name: Build
       run: |
-        sh ./gradlew dokkaGeneratePublicationHtml
+        sh ./gradlew dokkaHtml
     - name: Commit and push docs
       working-directory: ./
       run: |
