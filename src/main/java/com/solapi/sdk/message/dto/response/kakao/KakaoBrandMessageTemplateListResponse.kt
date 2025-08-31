@@ -6,5 +6,5 @@ import com.solapi.sdk.message.model.kakao.KakaoBrandMessageTemplate
 
 @Serializable
 data class KakaoBrandMessageTemplateListResponse(
-    var templateList: List<KakaoBrandMessageTemplate>? = null,
+    var brandTemplateList: List<KakaoBrandMessageTemplate>? = null,
 ) : CommonListResponse()
