@@ -5,8 +5,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "2.2.0"
-    kotlin("plugin.serialization") version "2.2.0"
+    kotlin("jvm") version "2.2.10"
+    kotlin("plugin.serialization") version "2.2.10"
     id("org.jetbrains.dokka") version "2.0.0"
     id("com.gradleup.shadow") version "8.3.8"
     java
@@ -17,7 +17,7 @@ plugins {
 }
 
 group = "com.solapi"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -75,8 +75,8 @@ mavenPublishing {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-    implementation(kotlin("reflect"))
+    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compileOnly("org.jetbrains.kotlin:kotlin-reflect")
     implementation("commons-codec:commons-codec:1.18.0")
     implementation("com.squareup.okhttp3:okhttp:5.1.0")
     implementation("com.squareup.okhttp3:logging-interceptor:5.1.0")
@@ -122,13 +122,14 @@ tasks.named("sourcesJar") {
 }
 
 tasks.shadowJar {
-    isEnableRelocation = true
-    relocationPrefix = "com.solapi.shadow"
-
     mergeServiceFiles()
 
-    exclude("**/*.kotlin_metadata")
-    exclude("**/*.kotlin_builtins")
+    // 의존성 충돌을 피하기 위해 필요한 패키지만 relocate
+    relocate("com.fasterxml", "com.solapi.shadow.com.fasterxml")
+    relocate("okhttp3", "com.solapi.shadow.okhttp3")
+    relocate("okio", "com.solapi.shadow.okio")
+    relocate("retrofit2", "com.solapi.shadow.retrofit2")
+    relocate("org.apache", "com.solapi.shadow.org.apache")
 
     archiveClassifier.set("")
 }
@@ -145,17 +146,11 @@ tasks.withType<JavaCompile>().configureEach {
 
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.compilerOptions {
-    freeCompilerArgs.set(listOf(
-        "-opt-in=kotlin.time.ExperimentalTime"
-    ))
     jvmTarget.set(JvmTarget.JVM_1_8)
 }
 
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.compilerOptions {
-    freeCompilerArgs.set(listOf(
-        "-opt-in=kotlin.time.ExperimentalTime"
-    ))
     jvmTarget.set(JvmTarget.JVM_1_8)
 }
 
