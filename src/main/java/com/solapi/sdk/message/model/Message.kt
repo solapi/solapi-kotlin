@@ -1,7 +1,5 @@
 package com.solapi.sdk.message.model
 
-import kotlinx.serialization.Contextual
-import java.time.LocalDateTime
 import kotlinx.serialization.Serializable
 import com.solapi.sdk.message.model.fax.FaxOption
 import com.solapi.sdk.message.model.kakao.KakaoOption
@@ -51,20 +49,17 @@ data class Message (
     /**
      *     * 발송 접수일자
      */
-    @Contextual
-    var dateProcessed: LocalDateTime? = null,
+    var dateProcessed: String? = null,
 
     /**
      * 통신사 결과 값 통보일자
      */
-    @Contextual
-    var dateReported: LocalDateTime? = null,
+    var dateReported: String? = null,
 
     /**
      * 실제 메시지 발송 완료일자
      */
-    @Contextual
-    var dateReceived: LocalDateTime? = null,
+    var dateReceived: String? = null,
 
     /**
      * 메시지 상태코드
@@ -112,14 +107,12 @@ data class Message (
     /**
      * 메시지 생성일자
      */
-    @Contextual
-    var dateCreated: LocalDateTime? = null,
+    var dateCreated: String? = null,
 
     /**
      * 메시지 수정일자
      */
-    @Contextual
-    var dateUpdated: LocalDateTime? = null,
+    var dateUpdated: String? = null,
 
     /**
      * 수신번호

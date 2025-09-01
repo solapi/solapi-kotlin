@@ -1,7 +1,5 @@
 package com.solapi.sdk.message.model.group
 
-import kotlinx.serialization.Contextual
-import java.time.LocalDateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -32,12 +30,8 @@ data class GroupInfo(
     var groupId: String? = null,
     var price: Map<String, PriceInfoDetail>? = null,
 
-    @Contextual
-    var dateSent: LocalDateTime? = null,
-    @Contextual
-    var dateCreated: LocalDateTime? = null,
-    @Contextual
-    var dateUpdated: LocalDateTime? = null,
-    @Contextual
-    var dateCompleted: LocalDateTime? = null
+    var dateSent: String? = null,
+    var dateCreated: String? = null,
+    var dateUpdated: String? = null,
+    var dateCompleted: String? = null
 )

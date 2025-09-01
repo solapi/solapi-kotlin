@@ -1,8 +1,6 @@
 package com.solapi.sdk.message.model.kakao
 
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
-import java.time.Instant
 
 @Serializable
 data class KakaoBrandMessageTemplate(
@@ -43,10 +41,8 @@ data class KakaoBrandMessageTemplate(
     var allowCopy: Boolean? = null,
 
     // 생성/수정 일시
-    @Contextual
-    var dateCreated: Instant? = null,
-    @Contextual
-    var dateUpdated: Instant? = null
+    var dateCreated: String? = null,
+    var dateUpdated: String? = null
 ) {
 
     @Serializable
