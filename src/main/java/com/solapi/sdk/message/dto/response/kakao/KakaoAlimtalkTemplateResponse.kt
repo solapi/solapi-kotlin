@@ -1,9 +1,7 @@
 package com.solapi.sdk.message.dto.response.kakao
 
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import com.solapi.sdk.message.model.kakao.*
-import java.time.Instant
 
 @Serializable
 data class KakaoAlimtalkTemplateResponse(
@@ -37,11 +35,9 @@ data class KakaoAlimtalkTemplateResponse(
     var header: String? = null,
     var variables: List<KakaoAlimtalkTemplateVariable>? = null,
 
-    @Contextual
-    var dateCreated: Instant? = null,
+    var dateCreated: String? = null,
 
-    @Contextual
-    var dateUpdated: Instant? = null
+    var dateUpdated: String? = null
 ) {
     @Serializable
     data class KakaoAlimtalkTemplateComment(

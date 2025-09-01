@@ -1,8 +1,6 @@
 package com.solapi.sdk.message.model.kakao
 
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
-import java.time.Instant
 
 @Serializable
 data class KakaoAlimtalkTemplateCodeList(
@@ -19,7 +17,6 @@ data class KakaoAlimtalkTemplateCodeList(
         var memberId: String? = null,
         var isAdmin: Boolean? = null,
         var content: String? = null,
-        @Contextual
-        var dateCreated: Instant? = null
+        var dateCreated: String? = null
     )
 }
