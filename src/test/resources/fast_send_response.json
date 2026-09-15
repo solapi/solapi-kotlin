@@ -1,0 +1,165 @@
+{
+  "messageList": [
+    {
+      "messageId": "M4V20260915094117PN62EGDZ0HO4F52",
+      "statusCode": "2000",
+      "statusMessage": "정상 접수(이통사로 접수 예정) ",
+      "customFields": {}
+    },
+    {
+      "messageId": "M4V20260915094117LB7LPXTZQRB9J94",
+      "statusCode": "2000",
+      "statusMessage": "정상 접수(이통사로 접수 예정) ",
+      "customFields": {}
+    }
+  ],
+  "failedMessageList": [],
+  "groupInfo": {
+    "deposit": {
+      "requested": 0,
+      "replacement": 0,
+      "additional": 0,
+      "refund": 0,
+      "sum": 0
+    },
+    "workspaceId": null,
+    "_id": "G4V20260915094117EL6SE8FGR4G62B5",
+    "groupId": "G4V20260915094117EL6SE8FGR4G62B5",
+    "serviceMethod": "MT",
+    "accountId": "12345678901234",
+    "apiVersion": "v4-fast",
+    "sdkVersion": "kotlin/1.1.0",
+    "osPlatform": "Mac OS X | 21 | aarch64",
+    "count": {
+      "total": 2,
+      "sentTotal": 0,
+      "sentFailed": 0,
+      "sentSuccess": 0,
+      "sentPending": 2,
+      "sentReplacement": 0,
+      "refund": 0,
+      "registeredFailed": 0,
+      "registeredSuccess": 2
+    },
+    "countForCharge": {
+      "sms": {
+        "82": 2
+      },
+      "lms": {},
+      "mms": {},
+      "ata": {},
+      "nsa": {},
+      "rcs_sms": {},
+      "rcs_lms": {},
+      "rcs_mms": {},
+      "rcs_tpl": {},
+      "rcs_itpl": {},
+      "rcs_ltpl": {},
+      "fax": {},
+      "voice": {},
+      "bms_text": {},
+      "bms_image": {},
+      "bms_wide": {},
+      "bms_wide_item_list": {},
+      "bms_carousel_feed": {},
+      "bms_premium_video": {},
+      "bms_commerce": {},
+      "bms_carousel_commerce": {},
+      "bms_free": {}
+    },
+    "log": [
+      {
+        "createAt": "2026-09-15T00:41:17.631Z",
+        "message": "메시지 그룹이 생성되었습니다."
+      },
+      {
+        "createAt": "2026-09-15T00:41:17.640Z",
+        "message": "2건의 메시지가 추가되었습니다."
+      }
+    ],
+    "status": "SEND-REQUESTED",
+    "dateSent": "2026-09-15T00:41:17.631Z",
+    "scheduledDate": null,
+    "dateCompleted": null,
+    "balance": {
+      "requested": 0,
+      "replacement": 0,
+      "additional": 0,
+      "refund": 0,
+      "sum": 0
+    },
+    "point": {
+      "requested": 26,
+      "replacement": 0,
+      "additional": 0,
+      "refund": 0,
+      "sum": 26
+    },
+    "app": {
+      "profit": {
+        "sms": 0,
+        "lms": 0,
+        "mms": 0,
+        "ata": 0,
+        "nsa": 0,
+        "rcs_sms": 0,
+        "rcs_lms": 0,
+        "rcs_mms": 0,
+        "rcs_tpl": 0,
+        "rcs_itpl": 0,
+        "rcs_ltpl": 0,
+        "fax": 0,
+        "voice": 0,
+        "bms_text": 0,
+        "bms_image": 0,
+        "bms_wide": 0,
+        "bms_wide_item_list": 0,
+        "bms_carousel_feed": 0,
+        "bms_premium_video": 0,
+        "bms_commerce": 0,
+        "bms_carousel_commerce": 0,
+        "bms_free": 0
+      },
+      "appId": null,
+      "version": "kotlin/1.1.0"
+    },
+    "price": {
+      "82": {
+        "sms": 13,
+        "lms": 29,
+        "mms": 60,
+        "ata": 8,
+        "cta": 14,
+        "cti": 22,
+        "nsa": 6,
+        "rcs_sms": 11,
+        "rcs_lms": 28,
+        "rcs_mms": 58,
+        "rcs_tpl": 8,
+        "bms_free": 100,
+        "bms_carousel_commerce": 103,
+        "bms_carousel_feed": 103,
+        "bms_commerce": 103,
+        "bms_image": 83,
+        "bms_premium_video": 103,
+        "bms_text": 53,
+        "bms_wide": 88,
+        "bms_wide_item_list": 103,
+        "fax": 100,
+        "rcs_itpl": 80,
+        "rcs_ltpl": 32,
+        "voice": 200
+      }
+    },
+    "flagUpdated": false,
+    "customFields": {},
+    "prepaid": true,
+    "strict": false,
+    "hint": {},
+    "masterAccountId": null,
+    "allowDuplicates": true,
+    "originCode": null,
+    "dateCreated": "2026-09-15T00:41:17.642Z",
+    "dateUpdated": "2026-09-15T00:41:17.642Z"
+  }
+}

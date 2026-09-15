@@ -9,8 +9,8 @@ data class AppProfit(
     val lms: Float? = null,
     val mms: Float? = null,
     val ata: Float? = null,
-    val cta: Float? = null,
-    val cti: Float? = null,
+    val cta: Float? = 0f,
+    val cti: Float? = 0f,
     val nsa: Float? = null,
     @SerialName("rcs_sms")
     val rcsSms: Float? = null,

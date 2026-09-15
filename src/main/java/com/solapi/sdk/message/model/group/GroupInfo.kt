@@ -16,7 +16,7 @@ data class GroupInfo(
     var log: List<GroupLog>? = null,
     var status: String? = null,
     var scheduledDate: String? = null,
-    var isRefunded: Boolean? = null,
+    var isRefunded: Boolean? = false,
     var flagUpdated: Boolean? = null,
     var prepaid: Boolean? = null,
     var strict: Boolean? = null,

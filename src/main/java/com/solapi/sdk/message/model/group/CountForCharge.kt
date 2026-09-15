@@ -9,8 +9,8 @@ data class CountForCharge(
     val lms: Map<String, Int>? = null,
     val mms: Map<String, Int>? = null,
     val ata: Map<String, Int>? = null,
-    val cta: Map<String, Int>? = null,
-    val cti: Map<String, Int>? = null,
+    val cta: Map<String, Int>? = emptyMap(),
+    val cti: Map<String, Int>? = emptyMap(),
     val nsa: Map<String, Int>? = null,
     @SerialName("rcs_sms")
     val rcsSms: Map<String, Int>? = null,
