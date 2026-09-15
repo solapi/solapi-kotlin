@@ -22,7 +22,7 @@ interface MessageHttpService : MessageService {
     @GET("/messages/v4/list")
     fun getMessageList(@QueryMap parameter: Map<String, Any?>? = null): Call<MessageListResponse>
 
-    @POST("/messages/v4/send-many/detail")
+    @POST("/messages/v4/send-many/fast")
     fun sendManyDetail(@Body parameter: MultipleDetailMessageSendingRequest): Call<MultipleDetailMessageSentResponse>
 
     @POST("/storage/v1/files")
