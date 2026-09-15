@@ -34,7 +34,7 @@ After gathering requirements, proceed to the relevant sections in this guide.
 
 | Item | Value |
 |------|-------|
-| SDK | `com.solapi:sdk:1.1.0` |
+| SDK | `com.solapi:sdk:1.2.0` |
 | Docs | https://developers.solapi.com/llms.txt |
 | API Ref | https://solapi.github.io/solapi-kotlin/ |
 | Java | 8+ |
@@ -52,7 +52,7 @@ variables.put("name", "홍길동");
 
 **Gradle (Kotlin DSL):**
 ```kotlin
-implementation("com.solapi:sdk:1.1.0")
+implementation("com.solapi:sdk:1.2.0")
 ```
 
 **Maven:**
@@ -60,7 +60,7 @@ implementation("com.solapi:sdk:1.1.0")
 <dependency>
     <groupId>com.solapi</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 

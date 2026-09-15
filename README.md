@@ -36,7 +36,7 @@ curl -s https://raw.githubusercontent.com/solapi/solapi-kotlin/main/LLM_GUIDE.md
 
 ```kotlin
 dependencies {
-    implementation("com.solapi:sdk:1.1.0")
+    implementation("com.solapi:sdk:1.2.0")
 }
 ```
 
@@ -44,7 +44,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation 'com.solapi:sdk:1.1.0'
+    implementation 'com.solapi:sdk:1.2.0'
 }
 ```
 
@@ -54,7 +54,7 @@ dependencies {
 <dependency>
     <groupId>com.solapi</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
@@ -165,7 +165,7 @@ java {
 }
 
 dependencies {
-    implementation 'com.solapi:sdk:1.1.0'
+    implementation 'com.solapi:sdk:1.2.0'
 }
 ```
 
